@@ -1,6 +1,5 @@
 package com.example.StudentJPA;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -44,6 +43,9 @@ public class Student {
     @Column(name = "age")
     private Integer age;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
     public Long getId() {
         return id;
     }
@@ -82,6 +84,17 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Student() {
     }
 
     public Student(String firstName, String lastName, String email, Integer age) {
