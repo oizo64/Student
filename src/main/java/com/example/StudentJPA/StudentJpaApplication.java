@@ -16,6 +16,7 @@ public class StudentJpaApplication {
 		return args -> {
 			Student piotr = new Student("Piotr", "Kwiatkowski", "piotr@gmail.com", 2);
 			studentRepository.save(piotr);
+
 		};
 	}
 }
